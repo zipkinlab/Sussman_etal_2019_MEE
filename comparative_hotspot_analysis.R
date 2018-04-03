@@ -1,32 +1,37 @@
 ####################################################################
 ####################################################################
-#   HOTSPOT ANAYLSES
+#
+#   HOTSPOT ANAYLSIS
 #     2 parametric models (persistence, conditional on presence)
 #     1 spatial model (Getis-Ord Gi*)
 #       (2nd spatial model KDE done in arcgis)
 #
 #   COMPARATIVE ANALYSIS
+#     Percent congruence
 #     Pearson's correlation
 #
 #   Runtime: ~16 minutes
+#
+#   Authors: Sussman A.L., Gardner B., Adams E.M., Salas L., Kenow K.P., 
+#   Luukkonen D.R., Monfils M.J., Mueller W.P., Williams K.A., Leduc-Lapierre M., and Zipkin E.F
+#
 ####################################################################
 ####################################################################
 
 #set working directory
-setwd("C:/Users/asussman/Documents/GitHub/hotspot_comparison/")
-#setwd("C:/Users/")
+setwd("C:/Users/")
 
 #read in standardized data
 blocks_surv <- read.csv("data_blocks.csv")                                          #distinct block list
-bird_recs_persist <- read.csv("data_birds_persistence.csv")                              #bird data for persistence model
-bird_recs <- read.csv("data_birds.csv")                                                  #bird data for conditional on presence & Gi* models (also used for kde in ArcGIS)
+bird_recs_persist <- read.csv("data_birds_persistence.csv")                         #bird data for persistence model
+bird_recs <- read.csv("data_birds.csv")                                             #bird data for conditional on presence & Gi* models (also used for kde in ArcGIS)
 
 #set species code for selected species/group
 species = 'ALLSP'
 
-####################################################################
+####### KERNEL DENSITY ESTIMATION MODEL (Spatial Approach #1) ######
 #
-#   KERNEL DENSITY ESTIMATION MODEL (Spatial Approach #1) 
+#   Sources: 
 #     Wilson L.J., McSorley, C.A., Gray C.M., Dean B.J., Dunn T.E., Webb A., and Reid J.B. 2009. 
 #       Radio-telemetry as a tool to define protected areas for seabirds in the marine environment. Biological Conservation 142:1808-1817.
 #     O'Brien S.H., Webb A., Brewer M.J., and Reid J.B. 2012. Use of kernel density estimation and maximum curvature to set 
@@ -42,9 +47,10 @@ species = 'ALLSP'
 # this model is done in ArcGIS using the kernel density tool, as at the time of this  
 # analysis R did not have the capability of conducting KDE with weighting (e.g., using abundance or density values)
 
-####################################################################
+
+#### GETIS-ORD Gi* HOTSPOT ANALYSIS MODEL (Spatial Approach #2) ####
 #
-#   GETIS-ORD Gi* HOTSPOT ANALYSIS MODEL (Spatial Approach #2)  
+#   Sources:  
 #     Getis A. and Boots B. 1978. Models of spatial processes: an approach to the study of point, line, and area patterns. 
 #       Cambridge University Press, Cambridge, England. 198pp.
 #     Getis A. and Ord J.K. 1992. The analysis of spatial association by use of distance statistics. Geographical Analysis 24(3):189-206.
@@ -63,8 +69,9 @@ library(spdep)
 library(plyr)
 library(data.table)
 
-#import shapefile of blocks with standardized effort-corrected counts
-abund_shp<-readShapePoly("C:/Users/asussman/Documents/MSU/github/ALLSP_poly.shp")
+#import shapefile of grid cells with standardized effort-corrected counts 
+      #(could also use grid cell layer joined to bird data and convernt to spatial feature...)
+abund_shp<-readShapePoly("C:/Users/ALLSP_poly.shp")
 
 #set projection (important for maintaining km in transects)
 gl_albers<-CRS("+proj=aea +lat_1=42.122774 +lat_2=49.01518 +lat_0=45.568977 +lon_0=-84.455955 +x_0=1000000 +y_0=1000000 +ellps=GRS80 +datum=NAD83 +units=m +no_defs ")
@@ -113,9 +120,9 @@ gstat.hs<-gstat.hs[,c(1,3:5,15,18:20,25)]
 gstat_out<-paste(species,"_gstat.csv",sep="", collapse = "")
 write.csv(gstat.hs, (gstat_out))  
 
-####################################################################
+############ PERSISTENCE MODEL (Parametric Approach #1) ############
 #
-#   PERSISTENCE MODEL (Parametric Approach #1)       
+#     Sources:       
 #       Suryan R.M., Santora J.A., and Veit R.R. 2012. 
 #         New approach for using remotely sensed chlorophyll a to identify seabird hotspots. Marine Ecology Progress Series 451:213-225.
 #       Santora J.A. and Veit R.R. 2013. Spatio-temporal persistence of top predator hotspots near the Antarctic Peninsula. 
@@ -171,9 +178,9 @@ persist.hs[is.na(persist.hs)] <- 0                                              
 persist_out<-paste(species,"_persistence.csv",sep="", collapse = "")
 write.csv(persist.hs, (persist_out)) 
 
-####################################################################
+###### CONDITIONAL ON PRESENCE MODEL (Parametric Approach #2) ######
 #
-#   CONDITIONAL ON PRESENCE MODEL (Parametric Approach #2)
+#   Sources:
 #     Kinlan et al. 2012, Zipkin et al. 2015
 #     Kinlan, B.P., E.F. Zipkin, A.F. O'Connell, and C. Caldow. 2012. 
 #       Statistical analyses to support guidelines for marine avian sampling: 
@@ -255,9 +262,10 @@ conditional.hs<-as.data.frame(conditional.hs)
 conditional.hs_out<-paste(species,"_conditional.csv",sep="", collapse = "")
 write.csv(conditional.hs, (conditional.hs_out))  
 
-####################################################################
+####################### COMPARATIVE ANALYSIS #######################
 #
-#   COMPARATIVE ANALYSIS
+#   Format and combine results, look at percent congruence
+#   and run pearson's correlations on all four hotspot models
 #
 ####################################################################
 
