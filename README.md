@@ -28,7 +28,7 @@ The raw aerial visual observations and transect shapefiles are publicly availabl
 * ALLSP_vals.csv - model results and grid cells in 75th percentile used in correlations and for mapping
 * ALLSP_corr.csv - correlation results
 
-**Species correlations and maps**
+**Species maps**
 * pdf file
 
 ## Support
