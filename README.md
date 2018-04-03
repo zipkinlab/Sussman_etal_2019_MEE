@@ -30,7 +30,7 @@ The raw aerial visual observations and transect shapefiles are publicly availabl
 * ALLSP_corr.csv - correlation results
 
 **Species maps**
-* pdf file
+* ALLSP_maps.pdf - example species results maps; includes mean effort-corrected counts, potential hotspots shown on the raw scale for each model, and potential hotspots above the 75th percentile for each model.
 
 ## Support
 This research was supported by the U.S. Fish and Wildlife Service Great Lakes Fish and
