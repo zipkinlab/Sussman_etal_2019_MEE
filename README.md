@@ -10,6 +10,7 @@ Detection of hotspots is a commonly used method in ecology and conservation to i
 * data_birds.csv - standardized effort-corrected counts summarized by grid cell (as exported from PostGreSQL)
 * data_birds_persistence.csv - standardized effort-corrected counts summarized by day and grid cell (as exported from PostGreSQL)
 * data_blocks.csv - unique list of surveyed grid cells (as exported from PostGreSQL)
+* ALLSP_poly.zip - zipped shapefile of surveyed grid cells with standardized effort-corrected counts (used for spatial models)
 
 The raw aerial visual observations and transect shapefiles are publicly available through the Midwest Avian Data Center (MWADC), a regional node of the Avian Knowledge Network hosted by Point Blue Conservation Science: https://data.pointblue.org/partners/mwadc/. The observation data were imported into the opensource relational database management system PostgreSQL v9.5.0, with the PostGIS extension v2.2.1, using GDAL ogr2ogr. Shapefiles of survey transects were downloaded from the MWADC and were also imported into PostgreSQL. Data were QA/QC'd and standardized to account for differences in survey methods in PostgreSQL. Using the RPostgreSQL library (Conway et al. 2017), the data were called directly from PostgreSQL within R (RStudio v1.0.136); for archival purposes, the data were exported from PostGreSQL to csv format. Three hotspot models were coded in R, and one model was conducted in ArcGIS v10.3.1.
 
