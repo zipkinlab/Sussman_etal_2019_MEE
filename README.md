@@ -7,24 +7,24 @@ Detection of hotspots is a commonly used method in ecology and conservation to i
 
 ## Data
 * alldata_attributed_v04122017.csv - raw aerial visual observations
-* bird_data.csv - standardized effort-corrected counts summarized by grid cell (as exported from PostGreSQL)
-* bird_data_persistence.csv - standardized effort-corrected counts summarized by day by grid cell (as exported from PostGreSQL)
-* blocks_surveyed.csv - unique list of grid cells (as exported from PostGreSQL)
+* data_birds.csv - standardized effort-corrected counts summarized by grid cell (as exported from PostGreSQL)
+* data_birds_persistence.csv - standardized effort-corrected counts summarized by day and grid cell (as exported from PostGreSQL)
+* data_blocks.csv - unique list of surveyed grid cells (as exported from PostGreSQL)
 
 The raw aerial visual observations and transect shapefiles are publicly available through the Midwest Avian Data Center (MWADC), a regional node of the Avian Knowledge Network hosted by Point Blue Conservation Science: https://data.pointblue.org/partners/mwadc/. The observation data were imported into the opensource relational database management system PostgreSQL v9.5.0, with the PostGIS extension v2.2.1, using GDAL ogr2ogr (http://www.gdal.org/ogr2ogr.html). Shapefiles of survey transects were downloaded from the MWADC and were also imported into PostgreSQL. Data were QA/QC'd and standardized to account for differences in survey methods in PostgreSQL. Using the RPostgreSQL library (Conway et al. 2017), the data were called directly from PostgreSQL within R (RStudio v1.0.136); for archival purposes, the data were exported from PostGreSQL to csv format. Three hotspot models were coded in R, and one model was conducted in ArcGIS v10.3.1.
 
 ## Code
 * comparative_hotspot_analysis.R - R code to perform three of the four hotspot models (Getis-Ord Gi*, hotspot persistence, and hotspots conditional on presence) used in the comparative analysis; the fourth model (kernel density estimation) was done directly in ArcGIS using the kernel density tool found in the Spatial Analyst toolbox. The models were conducted on the standardized effort-corrected count data. The comparative analysis is also included in this file: a comparison was performed on the results of all four models. Each model's resultant values were first ranked and then a Pearson's correlation was run on the ranked values to determine consistency across the different hotspot models.
 
-## Results
-**Model results, used in the comparative analysis (for one example species group: all species combined)**
+## Results (for one example species group: all species combined)
+**Hotspot model**
 * ALLSP_kde.csv - model results for the kernel density estimation approach (as exported from ArcGIS)
 * ALLSP_gstat.csv - model results for the Getis-Ord Gi* approach
 * ALLSP_persistence.csv - model results for the hotspot persistence approach (for each unique sampling event)
-* ALLSP_persistence_totals.csv - hotspot persistence approach: overall persistence calculated for each block (as exported from PostGreSQL)
+* ALLSP_persistence_totals.csv - hotspot persistence: overall persistence calculated for each block (as exported from PostGreSQL)
 * ALLSP_conditional.csv - model results for the hotspots conditional on presence approach
 
-**Comparative analysis results**
+**Comparative analysis**
 * ALLSP_vals.csv - model results and grid cells in 75th percentile used in correlations and for mapping
 * ALLSP_corr.csv - correlation results
 
