@@ -1,15 +1,9 @@
-### A comparative analysis of common methods to identify waterbird hotspots
+## A comparative analysis of common methods to identify waterbird hotspots
 
 *Sussman A.L., Gardner B., Adams E.M., Salas L., Kenow K.P., Luukkonen D.R., Monfils M.J., Mueller W.P., Williams K.A., Leduc-Lapierre M., and Zipkin E.F. In press. A comparative analysis of common methods to identify waterbird hotspots. Methods in Ecology and Evolution.*
 
 ### Abstract
 Hotspot analysis is a commonly used method in ecology and conservation to identify areas of high biodiversity or conservation concern. However, delineating and mapping hotspots is subjective and various approaches can lead to different conclusions with regard to the classification of particular areas as hotspots, complicating long-term conservation planning. We present a comparative analysis of recent approaches for identifying waterbird hotspots, with the goal of developing insights about the appropriate use of these methods. We selected four commonly used measures to identify persistent areas of high use: kernel density estimation, Getis-Ord G~i~&ast;, hotspot persistence, and hotspots conditional on presence, which represent the range of quantitative hotspot estimation approaches used in waterbird analyses. We applied each of the methods to aerial survey waterbird count data collected in the Great Lakes from 2012-2014. For each approach, we identified areas of high use for seven species/species groups and then compared the results across all methods and with mean effort-corrected counts. Our results indicate that formal hotspot analysis frameworks do not always lead to the same conclusions. The kernel density and Getis-Ord G~i~&ast; methods yielded the most similar results across all species analyzed and were generally correlated with mean effort-corrected count data. We found that these two models can differ substantially from the hotspot persistence and hotspots conditional on presence estimation approaches, which were not consistently similar to one another. The hotspot persistence approach differed most significantly from the other methods but is the only method to explicitly account for temporal variation. We recommend considering the ecological question and scale of conservation or management activities prior to designing survey methodologies. Deciding the appropriate definition and scale for analysis is critical for interpretation of hotspot analysis results as is inclusion of important covariates. Combining hotspot analysis methods using an integrative approach, either within a single analysis or post-hoc, could lead to greater consistency in the identification of waterbird hotspots.
-
-<center>![study area](study_area.png){width=45%}  
-<small>Aerial survey transects flown over select areas of the Great Lakes  
-during the fall, winter, and spring seasons from September 2012 to  
-June 2014. The surveyed regions are distinguished by colors & researcher.</small>
-</center>
 
 ### Data
 * alldata_attributed_v04122017.csv - raw aerial visual observations
