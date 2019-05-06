@@ -359,4 +359,18 @@ cor.four.top25.raw<-corr.test(allmethods_top25_corr_rawvals,use = "complete",met
 four.top25.raw.out<-paste(species,"_vals.csv",sep="", collapse = "")
 write.csv(allmethods_top25, (four.top25.raw.out))  
 cor.four.top25.raw.out<-paste(species,"_corr.csv",sep="", collapse = "")
-write.csv(cor.four.top25.raw$r, (cor.four.top25.raw.out))  
+write.csv(cor.four.top25.raw$r, (cor.four.top25.raw.out))
+
+#Determine which correlations are significant
+library(Hmisc)
+library(corrplot)
+
+cortest<-rcorr(as.matrix(allmethods_top25[,c(4,8,12,16,5)]),type="pearson") #run correlation on model raw val columns
+cortest.r<-cortest$r #save correlations
+cortest.p<-cortest$P #save p-values
+corrplot.mixed(cortest.r,tl.col="black",lower.col="black",p.mat = cortest.p, sig.level = 0.05) #plot #insig=blank
+title(paste(species," Significant Correlations",sep="", collapse = ""),line=-0.75) #add title
+#In the above figure, correlations with p-value > 0.05 are considered as insignificant. 
+#In this case the correlation coefficient values are left blank or crosses are added (insig=blank for Xs).
+#Positive correlations are displayed in blue and negative correlations in red color. 
+#Color intensity and the size of the circle are proportional to the correlation coefficients.
