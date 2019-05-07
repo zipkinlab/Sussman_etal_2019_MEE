@@ -1,4 +1,4 @@
-# A comparative analysis of methods to identify waterbird hotspots (in the Great Lakes)
+## A comparative analysis of common methods to identify waterbird hotspots
 
 ### Allison L. Sussman, Beth Gardner, Evan M. Adams, Leo Salas, Kevin P. Kenow, David R. Luukkonen, Michael J. Monfils, William P. Mueller, Kate A. Willimas, Michele Leduc-Lapierre, and Elise F. Zipkin
 
@@ -36,7 +36,7 @@ The raw aerial visual observations and transect shapefiles are publicly availabl
 **Species maps**
 * [ALLSP_maps.pdf](https://github.com/zipkinlab/Sussman_etal_MEE/blob/master/ALLSP_maps.pdf) - example species results maps; includes mean effort-corrected counts, potential hotspots shown on the raw scale for each model, and potential hotspots above the 75th percentile for each model.
 
-## Support
+### Support
 This research was supported by the U.S. Fish and Wildlife Service Great Lakes Fish and
 Wildlife Restoration Act grants program and was part of a large collaborative effort to monitor and map avian resources
 in the Great Lakes. See the Great Lakes Commission project page for more information: https://www.glc.org/work/avian-resources.
