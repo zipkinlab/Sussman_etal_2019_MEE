@@ -2,7 +2,7 @@
 
 ### Allison L. Sussman, Beth Gardner, Evan M. Adams, Leo Salas, Kevin P. Kenow, David R. Luukkonen, Michael J. Monfils, William P. Mueller, Kate A. Williams, Michele Leduc-Lapierre, and Elise F. Zipkin
 
-### Methods in Ecology and Evolution 2019
+### Methods in Ecology and Evolution
 
 ### Code/Data DOI: https://doi.org/10.5061/dryad.rs776p3
 
