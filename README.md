@@ -1,4 +1,4 @@
-# A comparative analysis of common methods to identify waterbird hotspots
+# [A comparative analysis of common methods to identify waterbird hotspots](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.13209)
 
 ### Allison L. Sussman, Beth Gardner, Evan M. Adams, Leo Salas, Kevin P. Kenow, David R. Luukkonen, Michael J. Monfils, William P. Mueller, Kate A. Williams, Michele Leduc-Lapierre, and Elise F. Zipkin
 
